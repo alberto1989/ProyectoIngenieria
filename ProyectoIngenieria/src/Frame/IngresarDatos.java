@@ -5,6 +5,7 @@
  */
 package Frame;
 
+import Frame.Conexion;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -313,39 +314,38 @@ public class IngresarDatos extends javax.swing.JFrame {
         
         //insercion de datos mysql
        
-       String formato = DatefechaInc.getDateFormatString();
-       Date date=(Date) DatefechaInc.getDate();
-       
-       String formato2 = dateFecha.getDateFormatString();
-       Date date2=(Date) dateFecha.getDate();
-       
-       String formato3=timeHora.getFormatedTime();
-       Timestamp time=(Timestamp) timeHora.get;
-      
+
         try {
-Statement st = (Statement) Conexion.obtener();
-String sentencia = "insert into formulario(numero,ind,) values(?,?,?,?,?)";
+            
+       Conexion MYSQL=new Conexion();
+Connection Conexion = MYSQL.obtener(); 
 
-PreparedStatement prepararConsulta = st.preparedStatement(sentencia);
+  String sentencia = "insert into formulario(NUMERO,INC,CARPERTA_INV,HORA,FECHA_INC,DELITO,REMITENTE,PROBABLE_RESP,SEXO,DENUNCIANTE,DESCRIPCION_BREVE,TRAMITE,FECHA,TURNO)"
+        + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-prepararConsulta.setInt(1,Integer.parseInt(textoNumero.getText()));
-prepararConsulta.setString(2,textoINC.getText());
-prepararConsulta.setString(3,comboCarpetaInv.getSelectedItem().toString());
-prepararConsulta.setTime(4,timeHora.getFormatedDate());
-prepararConsulta.setDate(5,date);
-prepararConsulta.setString(6,textoDelito.getText());
-prepararConsulta.setString(7,textoRemitente.getText());
-prepararConsulta.setString(8,textoProbableResp.getText());
-prepararConsulta.setString(9,comboSexo.getSelectedItem().toString());
-prepararConsulta.setString(10,textoDenunciante.getText());
-prepararConsulta.setString(11, textoDescripcion.getText());
-prepararConsulta.setString(12,textoTramite.getText());
-prepararConsulta.setDate(13, date2);
-prepararConsulta.setString(14,comboTurno.getSelectedItem().toString());
+
+PreparedStatement prepararConsulta = Conexion.prepareStatement(sentencia);
+
+
+prepararConsulta.setInt(2,Integer.parseInt(textoNumero.getText()));
+prepararConsulta.setString(3,textoINC.getText());
+prepararConsulta.setString(4,comboCarpetaInv.getSelectedItem().toString());
+prepararConsulta.setString(5,timeHora.getFormatedDate());
+prepararConsulta.setString(6,DatefechaInc.getDateFormatString());
+prepararConsulta.setString(7,textoDelito.getText());
+prepararConsulta.setString(8,textoRemitente.getText());
+prepararConsulta.setString(9,textoProbableResp.getText());
+prepararConsulta.setString(10,comboSexo.getSelectedItem().toString());
+prepararConsulta.setString(11,textoDenunciante.getText());
+prepararConsulta.setString(12, textoDescripcion.getText());
+prepararConsulta.setString(13,textoTramite.getText());
+prepararConsulta.setString(14,dateFecha.getDateFormatString());
+prepararConsulta.setString(15,comboTurno.getSelectedItem().toString());
 prepararConsulta.executeUpdate();
 
+
 prepararConsulta.close();
-st.close();
+
 JOptionPane.showMessageDialog(null,"Datos ingresados satisfactoriamente.");
 }
 
