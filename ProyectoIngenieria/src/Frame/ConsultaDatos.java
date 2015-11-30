@@ -349,10 +349,10 @@ public class ConsultaDatos extends javax.swing.JFrame {
             }
               //error de lectura a los campos de la bd
               } catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"Error sql no se pueden leer datos");
+            JOptionPane.showMessageDialog(null,"Ingrese los Datos Correctos");
           //error desconocido //por lo general no hay conexion con la base de datos
         } catch(ClassNotFoundException e){
-            JOptionPane.showMessageDialog(null,"Error al leer la base de datos");
+            JOptionPane.showMessageDialog(null,"Ingrese los Datos Correctos");
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
