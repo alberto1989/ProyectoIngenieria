@@ -30,4 +30,8 @@ public class Conexion {
       }
    
    }   
+
+    static ResultSet obtener(String select__from_producto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
