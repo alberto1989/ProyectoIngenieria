@@ -23,6 +23,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JTextField;
 
 
 /**
@@ -67,10 +68,8 @@ public class IngresarDatos extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         textoNumero = new javax.swing.JTextField();
-        textoINC = new javax.swing.JTextField();
         comboCarpetaInv = new javax.swing.JComboBox();
         DatefechaInc = new com.toedter.calendar.JDateChooser();
-        timeHora = new lu.tudor.santec.jtimechooser.JTimeChooser();
         textoDelito = new javax.swing.JTextField();
         textoRemitente = new javax.swing.JTextField();
         textoProbableResp = new javax.swing.JTextField();
@@ -87,6 +86,8 @@ public class IngresarDatos extends javax.swing.JFrame {
         comboTurno = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        textoTime = new javax.swing.JTextField();
+        comboIND = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +112,7 @@ public class IngresarDatos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(jLabel17)
                 .addGap(44, 44, 44)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,12 +122,13 @@ public class IngresarDatos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel16)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(81, 81, 81)
-                            .addComponent(jLabel17)
-                            .addGap(42, 42, 42)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(42, 42, 42))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel18)))
@@ -153,8 +155,12 @@ public class IngresarDatos extends javax.swing.JFrame {
 
         jLabel11.setText("Denunciante:");
 
+        comboCarpetaInv.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboCarpetaInv.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CI-FGAM/GAM-2/UI-3C/D/", "CI-FGAM/GAM-3/UI-2C/D/", "CI-FGAM/GAM-4/UI-2C/D/" }));
 
+        DatefechaInc.setDateFormatString("yyyy/MM/d");
+
+        comboSexo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
 
         jScrollPane1.setViewportView(textoDescripcion);
@@ -167,6 +173,9 @@ public class IngresarDatos extends javax.swing.JFrame {
 
         jLabel15.setText("Turno:");
 
+        dateFecha.setDateFormatString("yyyy/MM/d");
+
+        comboTurno.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Turno 1", "Turno 2", "Turno 3" }));
 
         jButton1.setText("Ingresar Datos");
@@ -182,6 +191,15 @@ public class IngresarDatos extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        textoTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoTimeActionPerformed(evt);
+            }
+        });
+
+        comboIND.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        comboIND.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GAM1", "GAM2", "GAM3", "GAM4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,15 +222,15 @@ public class IngresarDatos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoINC, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboCarpetaInv, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(timeHora, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DatefechaInc, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoTime)
+                            .addComponent(comboIND, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DatefechaInc, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(textoNumero)
+                            .addComponent(comboCarpetaInv, 0, 1, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(178, 178, 178)
+                                .addGap(161, 161, 161)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
@@ -220,15 +238,14 @@ public class IngresarDatos extends javax.swing.JFrame {
                                         .addComponent(jLabel10))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(9, 9, 9)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel6))))
+                                        .addComponent(jLabel6)))
                                 .addGap(25, 25, 25))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
-                                    .addComponent(jLabel8))
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoProbableResp)
@@ -238,23 +255,20 @@ public class IngresarDatos extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(dateFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(textoDelito))
+                            .addComponent(textoDelito)
+                            .addComponent(comboTurno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(66, 66, 66))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(82, 82, 82)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(68, 68, 68))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
-                                        .addGap(82, 82, 82)))
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +277,11 @@ public class IngresarDatos extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel15)
                                             .addComponent(jLabel14))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(152, 152, 152))))))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -280,8 +298,8 @@ public class IngresarDatos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7)
-                    .addComponent(textoINC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textoRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoRemitente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboIND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -293,10 +311,10 @@ public class IngresarDatos extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addComponent(jLabel10))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(timeHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(textoTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(DatefechaInc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,11 +324,11 @@ public class IngresarDatos extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11)
-                            .addComponent(textoDenunciante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(21, 21, 21)
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textoDenunciante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -339,9 +357,7 @@ public class IngresarDatos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,9 +379,9 @@ public class IngresarDatos extends javax.swing.JFrame {
         try {
             
        Conexion MYSQL=new Conexion();
-Connection Conexion = MYSQL.obtener(); 
+       Connection Conexion = MYSQL.obtener(); 
 
-  String sentencia = "insert into formulario(NUMERO,INC,CARPERTA_INV,HORA,FECHA_INC,DELITO,REMITENTE,PROBABLE_RESP,SEXO,DENUNCIANTE,DESCRIPCION_BREVE,TRAMITE,FECHA,TURNO)"
+  String sentencia = "insert into formulario(NUMERO,INC,CARPETA_INV,HORA,FECHA_INC,DELITO,REMITENTE,PROBABLE_RESP,SEXO,DENUNCIANTE,DESCRIPCION_BREVE,TRAMITE,FECHA,TURNO)"
         + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 
@@ -373,20 +389,20 @@ PreparedStatement prepararConsulta = Conexion.prepareStatement(sentencia);
 
 
 
-prepararConsulta.setInt(2,Integer.parseInt(textoNumero.getText()));
-prepararConsulta.setString(3,textoINC.getText());
-prepararConsulta.setString(4,comboCarpetaInv.getSelectedItem().toString());
-prepararConsulta.setString(5,timeHora.getFormatedDate());
-prepararConsulta.setString(6,DatefechaInc.getDateFormatString());
-prepararConsulta.setString(7,textoDelito.getText());
-prepararConsulta.setString(8,textoRemitente.getText());
-prepararConsulta.setString(9,textoProbableResp.getText());
-prepararConsulta.setString(10,comboSexo.getSelectedItem().toString());
-prepararConsulta.setString(11,textoDenunciante.getText());
-prepararConsulta.setString(12, textoDescripcion.getText());
-prepararConsulta.setString(13,textoTramite.getText());
-prepararConsulta.setString(14,dateFecha.getDateFormatString());
-prepararConsulta.setString(15,comboTurno.getSelectedItem().toString());
+prepararConsulta.setInt(1,Integer.parseInt(textoNumero.getText()));
+prepararConsulta.setString(2,comboIND.getSelectedItem().toString());
+prepararConsulta.setString(3,comboCarpetaInv.getSelectedItem().toString());
+prepararConsulta.setString(4,textoTime.getText());
+prepararConsulta.setString(5,((JTextField)DatefechaInc.getDateEditor().getUiComponent()).getText());
+prepararConsulta.setString(6,textoDelito.getText());
+prepararConsulta.setString(7,textoRemitente.getText());
+prepararConsulta.setString(8,textoProbableResp.getText());
+prepararConsulta.setString(9,comboSexo.getSelectedItem().toString());
+prepararConsulta.setString(10,textoDenunciante.getText());
+prepararConsulta.setString(11, textoDescripcion.getText());
+prepararConsulta.setString(12,textoTramite.getText());
+prepararConsulta.setString(13,((JTextField)dateFecha.getDateEditor().getUiComponent()).getText());
+prepararConsulta.setString(14,comboTurno.getSelectedItem().toString());
 prepararConsulta.executeUpdate();
 
 
@@ -410,6 +426,10 @@ JOptionPane.showMessageDialog(null,e.getMessage());
          verformulario2.setVisible(true); 
          this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void textoTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoTimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,6 +470,7 @@ JOptionPane.showMessageDialog(null,e.getMessage());
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser DatefechaInc;
     private javax.swing.JComboBox comboCarpetaInv;
+    private javax.swing.JComboBox comboIND;
     private javax.swing.JComboBox comboSexo;
     private javax.swing.JComboBox comboTurno;
     private com.toedter.calendar.JDateChooser dateFecha;
@@ -482,11 +503,10 @@ JOptionPane.showMessageDialog(null,e.getMessage());
     private javax.swing.JTextField textoDelito;
     private javax.swing.JTextField textoDenunciante;
     private javax.swing.JTextPane textoDescripcion;
-    private javax.swing.JTextField textoINC;
     private javax.swing.JTextField textoNumero;
     private javax.swing.JTextField textoProbableResp;
     private javax.swing.JTextField textoRemitente;
+    private javax.swing.JTextField textoTime;
     private javax.swing.JTextField textoTramite;
-    private lu.tudor.santec.jtimechooser.JTimeChooser timeHora;
     // End of variables declaration//GEN-END:variables
 }

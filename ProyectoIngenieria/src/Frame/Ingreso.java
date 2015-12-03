@@ -106,6 +106,7 @@ public class Ingreso extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Contraseña:");
 
+        comboUsuario.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         comboUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Usuario" }));
         comboUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
